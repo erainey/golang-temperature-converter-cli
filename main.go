@@ -26,7 +26,7 @@ func main() {
 
 	for {
 		fmt.Print("What is the current temperature in " + originUnit + " ? ")
-		_, err := fmt.Scanln(&originUnit)
+		_, err = fmt.Scanln(&originValue)
 
 		if err != nil {
 			printError(errReadingInput)
@@ -54,6 +54,9 @@ func main() {
 
 func printError(err error) {
 	fmt.Fprintf(os.Stderr, "error: %v\n", err)
+	if err != nil {
+		return
+	}
 	os.Exit(1)
 }
 
